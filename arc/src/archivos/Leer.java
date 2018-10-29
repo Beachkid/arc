@@ -29,6 +29,7 @@ public class Leer {
                         while ((c = f.read()) != -1) {
                             System.out.print((char) c);
                         }
+                        f.close();
                         System.out.println("\n");
                     } catch (FileNotFoundException e) {
                         System.out.println("El archivo no existe");
@@ -42,6 +43,7 @@ public class Leer {
                         while ((c = f.read()) != -1) {
                             System.out.print((char) c);
                         }
+                        f.close();
                         System.out.println("\n");
                     } catch (FileNotFoundException e) {
                         System.out.println("El archivo no existe");

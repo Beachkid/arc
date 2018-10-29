@@ -9,29 +9,11 @@ import java.util.Scanner;
 public class Listar {
 
     //Leer el contenido de un directorio (directorio de trabajo)
-    public void directorioVer(String path) {
-        File folder = new File(path);
-        File[] listOfFiles = folder.listFiles();
-
-        int files = 0;
-        int folders = 0;
-
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                System.out.println("archivo " + listOfFiles[i].getName());
-            } else if (listOfFiles[i].isDirectory()) {
-                System.out.println("carpeta " + listOfFiles[i].getName());
-            }
-        }
-    }
-    //Leer un archivo por su direccion
-
     public String leerDirectorio() {
         Scanner sc = new Scanner(System.in);
-        File folder = new File("C:\\Users\\lk23\\Documents\\NetBeansProjects\\arc\\arc");
+        File folder = new File("C:\\Users\\folder");
         File[] listOfFiles = folder.listFiles();
         String folderDirec = null;
-        String fileName;
         boolean end = true;
         int respuesta;
 
@@ -41,13 +23,18 @@ public class Listar {
             System.out.println("3. atras");
 
             respuesta = sc.nextInt();
-            line();
+            Principal.line();
 
             switch (respuesta) {
                 case 1:
+                    for (File listOfFile : listOfFiles) {
+                        if (listOfFile.isDirectory()) {
+                            System.out.println("Carpeta: " + listOfFile.getName());
+                        }
+                    }
                     for (File file : listOfFiles) {
                         if (file.isFile()) {
-                            System.out.println(file.getName());
+                            System.out.println("Archivo: " + file.getName());
                         }
                     }
                     break;
@@ -77,9 +64,5 @@ public class Listar {
             }
         } while (end);
         return folder.getPath();
-    }
-
-    private static void line() {
-        System.out.println("-----------------");
     }
 }

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *
  * @author lk23
  */
 public class Principal {
@@ -13,15 +12,14 @@ public class Principal {
     private String ultimoArchivo;
 
     public static void main(String[] args) throws IOException {
-        Principal p = new Principal();
-        p.menu();
+        menu();
     }
-
-    private void menu() throws IOException {
+    
+    private static void menu() throws IOException {
         Scanner sc = new Scanner(System.in);
         int opcion;
         boolean end = true;
-
+        
         do {
             System.out.println("1. Archivo");
             System.out.println("2. Directorio");
@@ -48,7 +46,7 @@ public class Principal {
         } while (end == true);
     }
 
-    private void subMenu1(Scanner sc) throws IOException {
+    private static void subMenu1(Scanner sc) throws IOException {
         boolean end = true;
         Leer l = new Leer();
         Agregar a = new Agregar();
@@ -122,12 +120,12 @@ public class Principal {
         } while (end);
     }
 
-    private void subMenu2(Scanner sc) {
+    private static void subMenu2(Scanner sc) {
         Listar l = new Listar();
         l.leerDirectorio();
     }
 
-    private static void line() {
+    static void line() {
         System.out.println("-----------------");
     }
 

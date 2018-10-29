@@ -9,8 +9,8 @@ import java.util.Scanner;
  * @author lk23
  */
 public class Agregar {
-
-    //sobreescribir un archivo
+    
+    //escribir en un archivo
     void escribirSobre(String nombre, boolean sobreEscribir) throws IOException {
         Scanner sc = new Scanner(System.in);
         if (sobreEscribir == true) {

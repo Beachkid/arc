@@ -1,6 +1,5 @@
 package archivos;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,6 +20,7 @@ public class Leer {
         do {
             System.out.println("1. buscar en carpeta predeterminada");
             System.out.println("2. buscar en otra carpeta");
+            System.out.println("3. atras");
             opcion = sc.nextInt();
 
             switch (opcion) {
@@ -39,7 +39,7 @@ public class Leer {
                     System.out.print("Ruta de archivo: ");
                     ruta = sc.next();
                     try {
-                        FileReader f = new FileReader(formatoRuta(nombre,ruta));
+                        FileReader f = new FileReader(formatoRuta(ruta,nombre));
                         while ((c = f.read()) != -1) {
                             System.out.print((char) c);
                         }
@@ -56,20 +56,10 @@ public class Leer {
                     break;
             }
         } while (end);
-        /*
-        try (FileReader f = new FileReader(nombre)) {
-        while ((c = f.read()) != -1) {
-        System.out.print((char) c);
-        }
-        System.out.println("\n");
-        } catch (FileNotFoundException e) {
-        System.out.println("El archivo no existe");
-        }*/
     }
-
-    //linea
     
-    private static String formatoRuta(String nombre,String ruta){
+    //formato de ruta ej. "C:\\usuario\\carpeta\\archivo"
+    private static String formatoRuta(String ruta,String nombre){
         return (ruta +"\\"+ nombre);
     }
     private static void line() {
